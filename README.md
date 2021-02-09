@@ -12,9 +12,9 @@
 
 |  |  |
 |--|--|
-| NIM | **nim** |
-| Nama Lengkap | **nama** |
-| Kelas | TI-3C/3D |
+| NIM | **1841720157** |
+| Nama Lengkap | **Andri Yoga Susila** |
+| Kelas | TI-3C |
 
 
 ## Struktur Folder
