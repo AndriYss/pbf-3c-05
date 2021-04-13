@@ -1,0 +1,20 @@
+[
+    {
+        "img": "assets/images/team1.jpg",
+        "name": "LINDA",
+        "pos": "Creative Director",
+        "dec": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo."
+    },
+    {
+        "img": "assets/images/team2.jpg",
+        "name": "JULIA",
+        "pos": "UX Designer",
+        "dec": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo."
+    },
+    {
+        "img": "assets/images/team3.jpg",
+        "name": "MARY",
+        "pos": "Frontend Developer",
+        "dec": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo."
+    }
+]

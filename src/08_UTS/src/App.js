@@ -7,20 +7,23 @@ import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { Redux } from "./store";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/About' component={About} />
-          <Route path='/Portfolio' component={Portfolio} />
-          <Route path='/Contact' component={Contact} />
-        </Switch>
-      </Router>
+      <Redux>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/About' component={About} />
+            <Route path='/Portfolio' component={Portfolio} />
+            <Route path='/Contact' component={Contact} />
+          </Switch>
+        </Router>
+      </Redux>
       <Footer />
     </div>
   )

@@ -1,7 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+const mapStateToProps = state => {
+    return {
+        about: state.about
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+
+    };
+};
 class About extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            aboutData: []
+        };
+    }
+
+    componentDidMount() {
+        // console.log(this.props.recentPost.data)
+        this.setState({
+            aboutData: this.props.about.data
+        })
+    }
     render() {
         return (
             <div>
@@ -20,31 +45,22 @@ class About extends React.Component {
                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
                             </div>
                         </div>
-                        <div className="row mt30">
-                            <div className="col-md-4 col-sm-4 col-xs-9">
-                                <div className="team-wrapper">
-                                    <img src="assets/images/team1.jpg" className="img-responsive" alt="team img" />
-                                    <h3>LINDA</h3>
-                                    <h4>Creative Director</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo.</p>
-                                </div>
-                            </div>
-                            <div className="col-md-4 col-sm-4 col-xs-9">
-                                <div className="team-wrapper">
-                                    <img src="assets/images/team2.jpg" className="img-responsive" alt="team img" />
-                                    <h3>JULIA</h3>
-                                    <h4>UX Designer</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo.</p>
-                                </div>
-                            </div>
-                            <div className="col-md-4 col-sm-4 col-xs-9">
-                                <div className="team-wrapper">
-                                    <img src="assets/images/team3.jpg" className="img-responsive" alt="team img" />
-                                    <h3>MARY</h3>
-                                    <h4>Frontend Developer</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo.</p>
-                                </div>
-                            </div>
+                        <div className="row mt30">{
+                            this.state.aboutData.length > 0 &&
+                            this.state.aboutData.map((el, i) => {
+                                return (
+                                    <div className="col-md-4 col-sm-4 col-xs-9" key={i}>
+                                        <div className="team-wrapper">
+                                            <img src={el.img} className="img-responsive" alt="team img" />
+                                            <h3>{el.name}</h3>
+                                            <h4>{el.pos}</h4>
+                                            <p>{el.dec}</p>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+
                         </div>
                         <div className="row mt30">
                             <div className="col-md-12 col-sm-12">
@@ -79,4 +95,4 @@ class About extends React.Component {
         )
     }
 }
-export default About
+export default connect(mapStateToProps, mapDispatchToProps)(About)
