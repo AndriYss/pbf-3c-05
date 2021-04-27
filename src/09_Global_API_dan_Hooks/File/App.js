@@ -4,6 +4,7 @@ import SetColor from "./SetColor";
 
 import React from 'react';
 import BlogPost from './components/BlogPost';
+import CommentPost from './components/CommentBlog';
 
 // export default function App() {
 //   return (
@@ -20,6 +21,7 @@ class App extends React.Component {
     return (
       <div>
         <BlogPost />
+        <CommentPost />
       </div>
     );
   }

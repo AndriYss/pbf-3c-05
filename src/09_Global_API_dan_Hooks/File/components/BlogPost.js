@@ -1,5 +1,9 @@
 import React from 'react';
-import API from '../services';
+import API from '../services/Artikel';
+// import API from '../services';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from 'react-bootstrap';
+
 
 function DaftarArtikel(props) {
     return (
@@ -47,7 +51,15 @@ export default class BlogPost extends React.Component {
             })
         })
     }
+    handleTombolHapus = (e) => {
+        e.preventDefault();
 
+        API.deleteNewsBlog(e.target.value)
+            .then((response) => {
+                this.ambilDataDariServerAPI();    // refresh data
+                alert('Data berhasil dihapus!');
+            });
+    }
     componentDidMount() {
         this.ambilDataDariServerAPI()
     }
@@ -74,7 +86,13 @@ export default class BlogPost extends React.Component {
                 <h2>Daftar Artikel</h2>
                 {
                     dataArtikel.map(artikel => {
-                        return <DaftarArtikel key={artikel.id} judul={artikel.title} isiArtikel={artikel.body} />
+                        return (
+                            <div key={artikel.id}>
+                                <DaftarArtikel judul={artikel.title} isiArtikel={artikel.body} />
+                                <Button variant="danger" value={artikel.id} onClick={this.handleTombolHapus}>Hapus</Button>
+                                <hr></hr>
+                            </div>
+                        )
                     })
                 }
             </div>
